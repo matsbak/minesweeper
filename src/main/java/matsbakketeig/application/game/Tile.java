@@ -4,7 +4,7 @@ package matsbakketeig.application.game;
  * The Tile class represents a tile in the minefield. A tile has attributes such as if it is hidden, flagged or a mine or not. A
  * tile also has a number revealing how many mines are surrounding the tile.
  * 
- * <p>A tile is by default hidden, not flagged nor a mine, and has a number 0.</p>
+ * <p>A tile is by default hidden, not flagged nor a mine, and has a 0.</p>
  * 
  * @author  Mats Bakketeig
  * @version v1.0 (04.07.2023)
