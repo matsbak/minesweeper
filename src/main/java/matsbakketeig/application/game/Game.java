@@ -26,17 +26,10 @@ public class Game
         {
             throw new IllegalArgumentException("Specified amount of mines is greater than amount of tiles in the constructor");
         }
-
-        List<Tile> tiles = this.generateTiles(rows, columns, mines);
-
-        List<List<Tile>> tilesLists = this.allocateTiles(tiles, rows, columns);
-
-        List<List<Tile>> updatedTilesLists = this.updateNumbers(tilesLists, rows, columns);
-
-        this.minefield = updatedTilesLists;
+        this.generateTiles(rows, columns, mines);
     }
 
-    private List<Tile> generateTiles(int rows, int columns, int mines)
+    private void generateTiles(int rows, int columns, int mines)
     {
         List<Tile> tiles = new ArrayList<>();
 
@@ -59,10 +52,10 @@ public class Game
 
         Collections.shuffle(tiles);
 
-        return tiles;
+        this.allocateTiles(tiles, rows, columns);
     }
 
-    private List<List<Tile>> allocateTiles(List<Tile> tiles, int rows, int columns)
+    private void allocateTiles(List<Tile> tiles, int rows, int columns)
     {
         List<List<Tile>> tilesLists = new ArrayList<>();
         
@@ -82,10 +75,10 @@ public class Game
             tilesLists.add(row);
         }
 
-        return tilesLists;
+        this.updateNumbers(tilesLists, rows, columns);
     }
 
-    private List<List<Tile>> updateNumbers(List<List<Tile>> tilesLists, int rows, int columns)
+    private void updateNumbers(List<List<Tile>> tilesLists, int rows, int columns)
     {
         List<List<Tile>> updatedTilesLists = new ArrayList<>();
 
@@ -116,11 +109,11 @@ public class Game
             {
                 Tile tile = tilesList.get(j);
 
-                if(!tile.getMine())
+                if(tile.getMine() == false)
                 {
                     try
                     {
-                        if(tilesList.get(j - 1).getMine())
+                        if(tilesList.get(j - 1).getMine() == true)
                         {
                             tile.increment();
                         }
@@ -130,7 +123,7 @@ public class Game
                     }
                     try
                     {
-                        if(tilesList.get(j + 1).getMine())
+                        if(tilesList.get(j + 1).getMine() == true)
                         {
                             tile.increment();
                         }
@@ -140,13 +133,13 @@ public class Game
                     }
                     if(prevTilesList != null)
                     {
-                        if(prevTilesList.get(j).getMine())
+                        if(prevTilesList.get(j).getMine() == true)
                         {
                             tile.increment();
                         }
                         try
                         {
-                            if(prevTilesList.get(j - 1).getMine())
+                            if(prevTilesList.get(j - 1).getMine() == true)
                             {
                                 tile.increment();
                             }
@@ -156,7 +149,7 @@ public class Game
                         }
                         try
                         {
-                            if(prevTilesList.get(j + 1).getMine())
+                            if(prevTilesList.get(j + 1).getMine() == true)
                             {
                                 tile.increment();
                             }
@@ -167,13 +160,13 @@ public class Game
                     }
                     if(nextTilesList != null)
                     {
-                        if(nextTilesList.get(j).getMine())
+                        if(nextTilesList.get(j).getMine() == true)
                         {
                             tile.increment();
                         }
                         try
                         {
-                            if(nextTilesList.get(j - 1).getMine())
+                            if(nextTilesList.get(j - 1).getMine() == true)
                             {
                                 tile.increment();
                             }
@@ -183,7 +176,7 @@ public class Game
                         }
                         try
                         {
-                            if(nextTilesList.get(j + 1).getMine())
+                            if(nextTilesList.get(j + 1).getMine() == true)
                             {
                                 tile.increment();
                             }
@@ -200,6 +193,6 @@ public class Game
             updatedTilesLists.add(updatedRow);
         }
 
-        return updatedTilesLists;
+        this.minefield = updatedTilesLists;
     }
 }
