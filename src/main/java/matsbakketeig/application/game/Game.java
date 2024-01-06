@@ -9,7 +9,7 @@ import java.util.List;
  * desired amount of rows, columns and mines has to be passed to the constructor.
  * 
  * @author  Mats Bakketeig
- * @version 1.3 (2024.01.06)
+ * @version v1.3 (2024.01.06)
  */
 public class Game {
   // Class fields
