@@ -9,12 +9,12 @@ package matsbakketeig.application.game;
  * are surrounding the tile is by default 0.</p>
  * 
  * @author  Mats Bakketeig
- * @version v1.0 (04.07.2023)
+ * @version v1.1 (2024.01.06)
  */
 public class Tile {
   // Class fields
   private boolean hidden;
-  private int number;
+  private int mines;
   private boolean mine;
   private boolean flagged;
 
@@ -23,7 +23,7 @@ public class Tile {
    */
   public Tile() {
     this.hidden = true;
-    this.number = 0;
+    this.mines = 0;
     this.mine = false;
     this.flagged = false;
   }
@@ -38,12 +38,12 @@ public class Tile {
   }
 
   /**
-   * Returns the number of mines surrounding the tile.
+   * Returns the number revealing how many mines are surrounding the tile.
    * 
-   * @return The number of mines surrounding the tile
+   * @return The number revealing how many mines are surrounding the tile
    */
-  public int getNumber() {
-    return this.number;
+  public int getMines() {
+    return this.mines;
   }
 
   /**
@@ -72,10 +72,10 @@ public class Tile {
   }
 
   /**
-   * Increments the number of the tile by 1.
+   * Increments the number revealing how many mines are surrounding the tile by 1.
    */
   public void increment() {
-    this.number++;
+    this.mines++;
   }
 
   /**
