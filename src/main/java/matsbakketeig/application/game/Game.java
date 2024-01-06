@@ -4,29 +4,55 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * The Game class represents the game logic of a minesweeper game. To make the logic of a game, the
+ * desired amount of rows, columns and mines has to be passed to the constructor.
+ * 
+ * @author  Mats Bakketeig
+ * @version 1.3 (2024.01.06)
+ */
 public class Game {
+  // Class fields
   private List<List<Tile>> minefield;
 
+  /**
+   * Constructs an instance of the Game class.
+   * 
+   * <p>The specified amount of rows, columns and mines cannot be negative or 0 and the specified
+   * amount of mines cannot be greater than the amount of tiles.</p>
+   * 
+   * @param rows The specified amount of rows
+   * @param columns The specified amount of columns
+   * @param mines The specified amount of mines
+   */
   public Game(int rows, int columns, int mines) {
     if (rows <= 0) {
-      throw new IllegalArgumentException("Specified amount of rows is negative or 0 in the " +
+      throw new IllegalArgumentException("The specified amount of rows is negative or 0 in the " +
                                          "constructor");
     }
     if (columns <= 0) {
-      throw new IllegalArgumentException("Specified amount of columns is negative or 0 in the " +
-                                         "constructor");
+      throw new IllegalArgumentException("The specified amount of columns is negative or 0 in " +
+                                         "the constructor");
     }
     if (mines <= 0) {
-      throw new IllegalArgumentException("Specified amount of mines is negative or 0 in the " +
+      throw new IllegalArgumentException("The specified amount of mines is negative or 0 in the " +
                                          "constructor");
     }
     if (mines > (rows * columns)) {
-      throw new IllegalArgumentException("Specified amount of mines is greater than amount of " +
-                                         "tiles in the constructor");
+      throw new IllegalArgumentException("The specified amount of mines is greater than the " +
+                                         "amount of tiles in the constructor");
     }
     this.generateTiles(rows, columns, mines);
   }
 
+  /**
+   * Generates all tiles to be used in the game and puts them in a list, which is shuffled
+   * afterwards.
+   * 
+   * @param rows The specified amount of rows
+   * @param columns The specified amount of columns
+   * @param mines The specified amount of mines
+   */
   private void generateTiles(int rows, int columns, int mines) {
     List<Tile> tiles = new ArrayList<>();
 
@@ -50,6 +76,14 @@ public class Game {
     this.allocateTiles(tiles, rows, columns);
   }
 
+  /**
+   * Allocates all tiles in the specified list of tiles to new lists of tiles for each row, which
+   * are again put in a list of lists of tiles.
+   * 
+   * @param tiles The specified list of tiles
+   * @param rows The specified amount of rows
+   * @param columns The specified amount of columns
+   */
   private void allocateTiles(List<Tile> tiles, int rows, int columns) {
     List<List<Tile>> tilesLists = new ArrayList<>();
         
@@ -67,10 +101,26 @@ public class Game {
       tilesLists.add(row);
     }
 
-    this.updateNumbers(tilesLists, rows, columns);
+    this.updateTileMines(tilesLists, rows, columns);
   }
 
-  private void updateNumbers(List<List<Tile>> tilesLists, int rows, int columns) {
+  /**
+   * Updates the number revealing how many mines are surrounding the tile for each tile. This is
+   * done by first checking if the tile is a mine. If the tile is not a mine, the eight tiles
+   * surrounding the tile are checked. For each mine in the eight tiles surrounding the tile, the
+   * number revealing how many mines are surrounding the tile is incremented.
+   * 
+   * <p>Because of the nature of this process, tiles that do not exist might be checked. If for
+   * example, the tiles surrounding a tile at a corner are checked, tiles that do not exist will be
+   * checked since the code expects to check eight tiles and not three. This is solved by simply
+   * making the code skip to checking the next surrounding tile each time a tile that does not
+   * exist is checked.</p>
+   * 
+   * @param tilesLists The specified list of lists of tiles
+   * @param rows The specified amount of rows
+   * @param columns The specified amount of columns
+   */
+  private void updateTileMines(List<List<Tile>> tilesLists, int rows, int columns) {
     List<List<Tile>> updatedTilesLists = new ArrayList<>();
 
     for (int i = 0; i < rows; i++) {
