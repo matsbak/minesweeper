@@ -82,11 +82,11 @@ public class Game {
 
       try {
         prevTilesList = tilesLists.get(i - 1);
-      } catch (IndexOutOfBoundsException exception) {
+      } catch (IndexOutOfBoundsException e) {
       }
       try {
         nextTilesList = tilesLists.get(i + 1);
-      } catch (IndexOutOfBoundsException exception) {
+      } catch (IndexOutOfBoundsException e) {
       }
 
       for (int j = 0; j < columns; j++) {
@@ -97,13 +97,13 @@ public class Game {
             if (tilesList.get(j - 1).getMine() == true) {
               tile.increment();
             }
-          } catch (IndexOutOfBoundsException exception) {
+          } catch (IndexOutOfBoundsException e) {
           }
           try {
             if (tilesList.get(j + 1).getMine() == true) {
               tile.increment();
             }
-          } catch (IndexOutOfBoundsException exception) {
+          } catch (IndexOutOfBoundsException e) {
           }
           if (prevTilesList != null) {
             if (prevTilesList.get(j).getMine() == true) {
@@ -113,13 +113,13 @@ public class Game {
               if (prevTilesList.get(j - 1).getMine() == true) {
                 tile.increment();
               }
-            } catch (IndexOutOfBoundsException exception) {
+            } catch (IndexOutOfBoundsException e) {
             }
             try {
               if (prevTilesList.get(j + 1).getMine() == true) {
                 tile.increment();
               }
-            } catch (IndexOutOfBoundsException exception) {
+            } catch (IndexOutOfBoundsException e) {
             }
           }
           if (nextTilesList != null) {
@@ -130,13 +130,13 @@ public class Game {
               if (nextTilesList.get(j - 1).getMine() == true) {
                 tile.increment();
               }
-            } catch (IndexOutOfBoundsException exception) {
+            } catch (IndexOutOfBoundsException e) {
             }
             try {
               if (nextTilesList.get(j + 1).getMine() == true) {
                 tile.increment();
               }
-            } catch (IndexOutOfBoundsException exception) {
+            } catch (IndexOutOfBoundsException e) {
             }
           }
         }
