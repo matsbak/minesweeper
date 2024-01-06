@@ -1,11 +1,12 @@
 package matsbakketeig.application.game;
 
 /**
- * The Tile class represents a tile in the minefield. A tile has attributes such as if it is
- * hidden, flagged or a mine or not. A tile also has a number revealing how many mines are
- * surrounding the tile.
+ * The Tile class represents a tile in the minefield. A tile has attributes such as being hidden,
+ * flagged or a mine or not. A tile also has a number revealing how many mines are surrounding the
+ * tile.
  * 
- * <p>A tile is by default hidden, not flagged nor a mine, and has a 0.</p>
+ * <p>A tile is by default hidden, not flagged and not a mine. The number revealing how many mines
+ * are surrounding the tile is by default 0.</p>
  * 
  * @author  Mats Bakketeig
  * @version v1.0 (04.07.2023)
@@ -28,71 +29,71 @@ public class Tile {
   }
 
   /**
-   * Returns if a tile is hidden or not.
+   * Returns true if the tile is hidden or false if it is not.
    * 
-   * @return If a tile is hidden or not.
+   * @return True if the tile is hidden or false if it is not
    */
   public boolean getHidden() {
     return this.hidden;
   }
 
   /**
-   * Returns the number of the tile.
+   * Returns the number of mines surrounding the tile.
    * 
-   * @return The number of the tile.
+   * @return The number of mines surrounding the tile
    */
   public int getNumber() {
     return this.number;
   }
 
   /**
-   * Returns if a tile is a mine or not.
+   * Returns true if the tile is a mine or false if it is not.
    * 
-   * @return If a tile is a mine or not.
+   * @return True if the tile is a mine or false if it is not
    */
   public boolean getMine() {
     return this.mine;
   }
 
   /**
-   * Returns if a tile is flagged or not.
+   * Returns true if the tile is flagged or false if it is not.
    * 
-   * @return If a tile is flagged or not.
+   * @return True if the tile is flagged or false if it is not
    */
   public boolean getFlagged() {
     return this.flagged;
   }
 
   /**
-   * Shows a tile.
+   * Shows the tile.
    */
   public void show() {
     this.hidden = false;
   }
 
   /**
-   * Increments the number of a tile by 1.
+   * Increments the number of the tile by 1.
    */
   public void increment() {
     this.number++;
   }
 
   /**
-   * Plants a mine on a tile.
+   * Plants a mine on the tile.
    */
   public void plant() {
     this.mine = true;
   }
 
   /**
-   * Flags a tile.
+   * Flags the tile.
    */
   public void flag() {
     this.flagged = true;
   }
 
   /**
-   * Unflags a tile.
+   * Unflags the tile.
    */
   public void unflag() {
     this.flagged = false;
