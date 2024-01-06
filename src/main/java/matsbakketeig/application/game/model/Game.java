@@ -1,4 +1,4 @@
-package matsbakketeig.application.game;
+package matsbakketeig.application.game.model;
 
 import java.util.ArrayList;
 import java.util.Collections;

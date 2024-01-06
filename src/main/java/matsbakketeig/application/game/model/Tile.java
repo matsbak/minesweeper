@@ -1,4 +1,4 @@
-package matsbakketeig.application.game;
+package matsbakketeig.application.game.model;
 
 /**
  * The Tile class represents a tile in the minefield. A tile has attributes such as being hidden,
