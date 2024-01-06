@@ -94,34 +94,34 @@ public class Game {
       for (int j = 0; j < columns; j++) {
         Tile tile = tilesList.get(j);
 
-        if (tile.getMine() == false) {
+        if (!tile.getMine()) {
           try {
-            if (tilesList.get(j - 1).getMine() == true) {
+            if (tilesList.get(j - 1).getMine()) {
               tile.increment();
             }
           } catch (IndexOutOfBoundsException e) {
             // Intentionally left blank
           }
           try {
-            if (tilesList.get(j + 1).getMine() == true) {
+            if (tilesList.get(j + 1).getMine()) {
               tile.increment();
             }
           } catch (IndexOutOfBoundsException e) {
             // Intentionally left blank
           }
           if (prevTilesList != null) {
-            if (prevTilesList.get(j).getMine() == true) {
+            if (prevTilesList.get(j).getMine()) {
               tile.increment();
             }
             try {
-              if (prevTilesList.get(j - 1).getMine() == true) {
+              if (prevTilesList.get(j - 1).getMine()) {
                 tile.increment();
               }
             } catch (IndexOutOfBoundsException e) {
               // Intentionally left blank
             }
             try {
-              if (prevTilesList.get(j + 1).getMine() == true) {
+              if (prevTilesList.get(j + 1).getMine()) {
                 tile.increment();
               }
             } catch (IndexOutOfBoundsException e) {
@@ -129,18 +129,18 @@ public class Game {
             }
           }
           if (nextTilesList != null) {
-            if (nextTilesList.get(j).getMine() == true) {
+            if (nextTilesList.get(j).getMine()) {
               tile.increment();
             }
             try {
-              if (nextTilesList.get(j - 1).getMine() == true) {
+              if (nextTilesList.get(j - 1).getMine()) {
                 tile.increment();
               }
             } catch (IndexOutOfBoundsException e) {
               // Intentionally left blank
             }
             try {
-              if (nextTilesList.get(j + 1).getMine() == true) {
+              if (nextTilesList.get(j + 1).getMine()) {
                 tile.increment();
               }
             } catch (IndexOutOfBoundsException e) {
