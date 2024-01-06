@@ -83,10 +83,12 @@ public class Game {
       try {
         prevTilesList = tilesLists.get(i - 1);
       } catch (IndexOutOfBoundsException e) {
+        // Intentionally left blank
       }
       try {
         nextTilesList = tilesLists.get(i + 1);
       } catch (IndexOutOfBoundsException e) {
+        // Intentionally left blank
       }
 
       for (int j = 0; j < columns; j++) {
@@ -98,12 +100,14 @@ public class Game {
               tile.increment();
             }
           } catch (IndexOutOfBoundsException e) {
+            // Intentionally left blank
           }
           try {
             if (tilesList.get(j + 1).getMine() == true) {
               tile.increment();
             }
           } catch (IndexOutOfBoundsException e) {
+            // Intentionally left blank
           }
           if (prevTilesList != null) {
             if (prevTilesList.get(j).getMine() == true) {
@@ -114,12 +118,14 @@ public class Game {
                 tile.increment();
               }
             } catch (IndexOutOfBoundsException e) {
+              // Intentionally left blank
             }
             try {
               if (prevTilesList.get(j + 1).getMine() == true) {
                 tile.increment();
               }
             } catch (IndexOutOfBoundsException e) {
+              // Intentionally left blank
             }
           }
           if (nextTilesList != null) {
@@ -131,12 +137,14 @@ public class Game {
                 tile.increment();
               }
             } catch (IndexOutOfBoundsException e) {
+              // Intentionally left blank
             }
             try {
               if (nextTilesList.get(j + 1).getMine() == true) {
                 tile.increment();
               }
             } catch (IndexOutOfBoundsException e) {
+              // Intentionally left blank
             }
           }
         }
