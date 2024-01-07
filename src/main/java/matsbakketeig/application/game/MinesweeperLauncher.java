@@ -5,7 +5,7 @@ package matsbakketeig.application.game;
  * sole purpose of the class is to run the <b>main</b> static method.
  * 
  * @author  Mats Bakketeig
- * @version v1.0 (2024.01.06)
+ * @version v1.0 (2024.01.07)
  */
 public class MinesweeperLauncher {
   /**
@@ -13,7 +13,7 @@ public class MinesweeperLauncher {
    * 
    * <p>This class is not supposed to be instantiated.</p>
    */
-  public MinesweeperLauncher() {
+  private MinesweeperLauncher() {
     // Intentionally left blank
   }
 
