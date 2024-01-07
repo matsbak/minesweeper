@@ -1,5 +1,7 @@
 package matsbakketeig.application.game;
 
+import matsbakketeig.application.game.view.MinesweeperApp;
+
 /**
  * The MinesweeperLauncher class represents the starting point of the Minesweeper application. The
  * sole purpose of the class is to run the <b>main</b> static method.
@@ -29,5 +31,6 @@ public class MinesweeperLauncher {
    *             during the startup of the application
    */
   public static void main(String[] args) {
+    MinesweeperApp.main(args);
   }
 }
