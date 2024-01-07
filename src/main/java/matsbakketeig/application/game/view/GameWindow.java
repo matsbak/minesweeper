@@ -1,5 +1,7 @@
 package matsbakketeig.application.game.view;
 
+import javafx.scene.Scene;
+
 /**
  * The GameWindow class represents the game window of the application that allows the user to play
  * the game.
@@ -12,6 +14,7 @@ public class GameWindow {
   private MinesweeperApp minesweeperApp;
   private final int windowWidth;
   private final int windowHeight;
+  private Scene scene;
 
   /**
    * Constructs an instance of the GameWindow class.
@@ -25,6 +28,15 @@ public class GameWindow {
     this.windowWidth = windowWidth;
     this.windowHeight = windowHeight;
     this.createScene();
+  }
+
+  /**
+   * Returns the scene shown in the window.
+   * 
+   * @return The scene shown in the window
+   */
+  public Scene getScene() {
+    return this.scene;
   }
 
   /**
