@@ -4,7 +4,8 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- * The main window of the application, used for interaction with the user.
+ * The MinesweeperApp class represetns the main window of the application, used for interaction
+ * with the user.
  * 
  * @author  Mats Bakketeig
  * @version v1.0 (2024.01.07)
