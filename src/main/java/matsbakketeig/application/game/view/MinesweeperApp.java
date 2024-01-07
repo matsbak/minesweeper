@@ -1,6 +1,7 @@
 package matsbakketeig.application.game.view;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import matsbakketeig.application.game.controller.MainController;
 
@@ -15,6 +16,7 @@ public class MinesweeperApp extends Application {
   // Class fields
   private MainController mainController;
   private Stage primaryStage;
+  private GameWindow gameWindow;
 
   private static final int WINDOW_WIDTH = 800;
   private static final int WINDOW_HEIGHT = 600;
@@ -47,6 +49,23 @@ public class MinesweeperApp extends Application {
   }
 
   /**
+   * Changes the scene to a new game window scene.
+   */
+  public void changeToGameWindow() {
+    this.gameWindow = new GameWindow(this, WINDOW_WIDTH, WINDOW_HEIGHT);
+    this.changeToScene(this.gameWindow.getScene());
+  }
+
+  /**
+   * Changes the scene shown in the primary stage to the specified scene.
+   * 
+   * @param scene The specified scene
+   */
+  private void changeToScene(Scene scene) {
+    this.primaryStage.setScene(scene);
+  }
+
+  /**
    * Starts the application by launching the GUI.
    */
   public void start(Stage primaryStage) throws Exception {
@@ -55,6 +74,7 @@ public class MinesweeperApp extends Application {
     this.setPrimaryStage(primaryStage);
 
     primaryStage.setTitle("Minesweeper");
+    this.changeToGameWindow();
     primaryStage.show();
   }
 
