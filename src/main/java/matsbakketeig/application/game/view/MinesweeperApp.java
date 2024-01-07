@@ -37,6 +37,11 @@ public class MinesweeperApp extends Application {
     this.mainController = mainController;
   }
 
+  /**
+   * Sets the primary stage to the specified primary stage.
+   * 
+   * @param primaryStage The specified primary stage
+   */
   public void setPrimaryStage(Stage primaryStage) {
     this.primaryStage = primaryStage;
   }
@@ -46,7 +51,7 @@ public class MinesweeperApp extends Application {
    */
   public void start(Stage primaryStage) throws Exception {
     this.setMainController(new MainController(this));
-    
+
     this.setPrimaryStage(primaryStage);
 
     primaryStage.setTitle("Minesweeper");
